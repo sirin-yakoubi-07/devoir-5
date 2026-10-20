@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    <h2>ADD Game :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Game</label>
+      <input type="text" [(ngModel)]="newGame.idgame" name="idgame" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Game Name</label>
+      <input type="text" [(ngModel)]="newGame.gamename" name="gamename" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Game Price</label>
+      <input type="number" [(ngModel)]="newGame.gameprice" name="gameprice" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Creation Date</label>
+      <input type="date" [(ngModel)]="newGame.creationdate" name="creationdate" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Classification</label>
+      <select class="form-control form-control-lg" id="idClass" name="idClass" [(ngModel)]="newIdClass">
+        @for (cls of classifications; track cls.idClass) {
+          <option [value]="cls.idClass"> {{cls.nomClass}} </option>
+        }
+      </select>
+    </div>
+
+    <div class="mt-2">
+      <button type="submit" (click)="addGame()" class="btn btn-success">Add</button>
+      <div>
+        <h3>{{message}}</h3>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h2>Total Games: {{games.length}}</h2>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Creation Date</th>
+            <th>Classification</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (game of games; track game.idgame; let i = $index) {
+            <tr>
+              <td>{{i + 1}}</td>
+              <td>{{game.idgame}}</td>
+              <td>{{game.gamename}}</td>
+              <td>{{game.gameprice}}</td>
+              <td>{{game.creationdate | date}}</td>
+              <td>{{game.classification?.nomClass}}</td>
+              <td>
+                <button class="btn btn-success btn-sm" [routerLink]="['/updategame', game.idgame]">Modify</button>
+                <button class="btn btn-danger btn-sm ms-2" (click)="supprimerGame(game)">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
