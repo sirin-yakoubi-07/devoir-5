@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Game } from '../model/game.model';
 import { GameService } from '../services/game';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-games',
@@ -14,7 +15,8 @@ import { GameService } from '../services/game';
 export class GamesComponent implements OnInit {
   games!: Game[];
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService : GameService, 
+public authService: Auth) {  } 
 
   ngOnInit(): void {
     this.games = this.gameService.listeGames();

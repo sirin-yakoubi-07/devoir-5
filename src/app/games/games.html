@@ -24,10 +24,10 @@
               <td>{{game.gameprice}}</td>
               <td>{{game.creationdate | date}}</td>
               <td>{{game.classification?.nomClass}}</td>
-              <td>
-                <button class="btn btn-success btn-sm" [routerLink]="['/updategame', game.idgame]">Modify</button>
-                <button class="btn btn-danger btn-sm ms-2" (click)="supprimerGame(game)">Delete</button>
-              </td>
+            @if(authService.isAdmin()) { 
+<td><a class="btn btn-danger"  (click)="supprimerGame(game)">delete</a></td>  
+<td><a class="btn btn-success" [routerLink]="['/updateGame',game.idgame]">modify</a></td> 
+}
             </tr>
           }
         </tbody>

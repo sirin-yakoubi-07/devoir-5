@@ -36,6 +36,7 @@ export class GameService {
         creationdate: new Date("2015-05-19"),
         classification: { idClass: 3, nomClass: "rpg" }
       },
+      
       {
         idgame: 3,
         gamename: "Red Dead Redemption 2",
